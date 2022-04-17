@@ -1,5 +1,7 @@
 # borg-search
 
+! The way that the borg documentation suggests to do the search is to mount archive and use search tool specific for you system. However, in my case, because of not the best Internet connection (?), mounting often failed and I was not able to search for files on mounted drives. The tools here seem to work well without mounting your backups. !
+
 Two tools here search archive all repositories or make list for each repository and then use grep.
 
 	./borg-search.py -h
