@@ -2,12 +2,18 @@
 # -*- coding: utf-8 -*-
 """Search for phrase in all of your repos or in --only::
 
-     $ python borg-index.py --only snapshot-2022-04-16
+    $ borg-index.py --only m1.
+    > args: Namespace(only='m1.', verbose=False)
+    > repo: 'm1.local-2022-01-26-143942'
 
 files will be created so you can grep them::
 
-    $ head snapshot-2022-04-13T00:01:05.txt
-    drwxr-xr-x magnus staff         0 Tue, 2022-04-12 23:07:02 Users/magnus/Desktop
+    $ grep 'Miro' m1*
+    m1.local-2022-01-26-143942.txt:drwxr-xr-x magnus staff         0 Mon, 2021-07-26 17:02:21 Volumes/HD/docs/Movies/Miro Video Converter
+
+and then to extract::
+
+    $ borg extract ::m1.local-2022-01-26-143942 'Volumes/HD/docs/Movies
 
 """
 from __future__ import print_function
@@ -24,7 +30,8 @@ def get_parser():
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
-    parser.add_argument("--only", help="only this repo, like 'snapshot' or 'snapshot-2022-04'", default="") # nargs='+')
+    parser.add_argument("--only", help="only this repo, like 'snapshot' or 'snapshot-2022-04' (dont use here *, just write part of repo names; of '*' then take all (by default)",
+                        default="*") # nargs='+')
     return parser
 
 
@@ -39,11 +46,20 @@ def exe(cmd):
 if __name__ == '__main__':
     parser = get_parser()
     args = parser.parse_args()
-    search = args.search
     ic(args)
     out, err = exe("borg list ::")
+    nl = []
     for l in out.split('\n'):
         repo = l.split()[0]
+        if args.only == '*':
+            nl.append(repo)
+            continue
         if args.only in l:
-            ic(repo)
-            os.system('borg list ::%s > %s.txt' % (repo, repo))
+            nl.append(repo)
+
+    print('found ', len(nl))
+    for l in nl:
+        print(l)
+
+    for repo in nl:
+        os.system('borg list ::%s > %s.txt' % (repo, repo))

@@ -18,21 +18,30 @@ Two tools here search archive all repositories or make list for each repository 
 	  --only ONLY    only this repo, like 'snapshot' or 'snapshot-2022-04'
 
 -------------------------------------------------------------------------------
-  
-	./borg-index.py -h
-	usage: borg-index.py [-h] [-v] [--only ONLY] search
+
+	(base) ➜  borg-search git:(main) ✗ ./borg-index.py -h
+	usage: borg-index.py [-h] [-v] [--only ONLY]
 
 	Search for phrase in all of your repos or in --only::
 
-		  python borg-search.py --only snapshot-2022-04-16 cCA
+		/Users/magnus/workspace/borg-search/borg-index.py --only m1.
+		> args: Namespace(only='m1.', verbose=False)
+		> repo: 'm1.local-2022-01-26-143942'
 
-	positional arguments:
-	  search
+	files will be created so you can grep them::
+
+		(base) ➜  mq git:(master) ✗ grep 'Miro' m1*
+		m1.local-2022-01-26-143942.txt:drwxr-xr-x magnus staff         0 Mon, 2021-07-26 17:02:21 Volumes/HD/docs/Movies/Miro Video Converter
+
+	and then to extract::
+
+		borg extract ::m1.local-2022-01-26-143942 'Volumes/HD/docs/Movies
 
 	optional arguments:
 	  -h, --help     show this help message and exit
 	  -v, --verbose  be verbose
-	  --only ONLY    only this repo, like 'snapshot' or 'snapshot-2022-04'
+	  --only ONLY    only this repo, like 'snapshot' or 'snapshot-2022-04' (dont use here *, just write part of repo names; of '*' then take all (by default)
+
 
 grep resulting from borg-index.py files:
 
