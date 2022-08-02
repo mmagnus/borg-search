@@ -48,6 +48,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
     ic(args)
     out, err = exe("borg list ::")
+    if not out.strip():
+        print('Empty borg list')
+        sys.exit(1)
     nl = []
     for l in out.split('\n'):
         repo = l.split()[0]
@@ -61,5 +64,10 @@ if __name__ == '__main__':
     for l in nl:
         print(l)
 
-    for repo in nl:
-        os.system('borg list ::%s > %s.txt' % (repo, repo))
+    from tqdm import tqdm
+    pbar = tqdm(nl)
+    for repo in pbar:
+        cmd = 'borg list ::%s > %s.txt' % (repo, repo)
+        if args.verbose: print(cmd)
+        pbar.set_description("Processing %s" % repo)
+        os.system(cmd)
