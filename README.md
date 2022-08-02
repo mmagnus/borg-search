@@ -19,30 +19,30 @@ Two tools here search archive all repositories or make list for each repository 
 	  -v, --verbose  be verbose
 	  --only ONLY    only this repo, like 'snapshot' or 'snapshot-2022-04'
 
--------------------------------------------------------------------------------
+Maybe better way to do it is tu make a list of files, and then run many greps to grep for what you want. Then use this tool:
 
-./borg-index.py -h
-usage: borg-index.py [-h] [-v] [--only ONLY]
+	./borg-index.py -h
+	usage: borg-index.py [-h] [-v] [--only ONLY]
 
-Search for phrase in all of your repos or in --only::
+	Search for phrase in all of your repos or in --only::
 
-    $ borg-index.py --only m1.
-    > args: Namespace(only='m1.', verbose=False)
-    > repo: 'm1.local-2022-01-26-143942'
+		$ borg-index.py --only m1.
+		> args: Namespace(only='m1.', verbose=False)
+		> repo: 'm1.local-2022-01-26-143942'
 
-files will be created so you can grep them::
+	files will be created so you can grep them::
 
-    $ grep 'Miro' m1*
-    m1.local-2022-01-26-143942.txt:drwxr-xr-x magnus staff         0 Mon, 2021-07-26 17:02:21 Volumes/HD/docs/Movies/Miro Video Converter
+		$ grep 'Miro' m1*
+		m1.local-2022-01-26-143942.txt:drwxr-xr-x magnus staff         0 Mon, 2021-07-26 17:02:21 Volumes/HD/docs/Movies/Miro Video Converter
 
-and then to extract::
+	and then to extract::
 
-    $ borg extract ::m1.local-2022-01-26-143942 'Volumes/HD/docs/Movies
+	  $ borg extract ::m1.local-2022-01-26-143942 'Volumes/HD/docs/Movies
 
-optional arguments:
-  -h, --help     show this help message and exit
-  -v, --verbose  be verbose
-  --only ONLY    only this repo, like 'snapshot' or 'snapshot-2022-04' (dont use here *, just write part of repo names; of '*' then take all (by default)
+	optional arguments:
+	  -h, --help     show this help message and exit
+	  -v, --verbose  be verbose
+	  --only ONLY    only this repo, like 'snapshot' or 'snapshot-2022-04' (dont use here *, just write part of repo names; of '*' then take all (by default)
   
 grep resulting from borg-index.py files:
 
