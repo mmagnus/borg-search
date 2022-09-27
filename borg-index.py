@@ -71,3 +71,7 @@ if __name__ == '__main__':
         if args.verbose: print(cmd)
         pbar.set_description("Processing %s" % repo)
         os.system(cmd)
+
+        cmd = 'zip %s.zip %s.txt && trash %s.txt ' % (repo, repo, repo)
+        if args.verbose: print(cmd)
+        os.system(cmd)
