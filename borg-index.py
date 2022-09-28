@@ -67,11 +67,17 @@ if __name__ == '__main__':
     from tqdm import tqdm
     pbar = tqdm(nl)
     for repo in pbar:
-        cmd = 'borg list ::%s > %s.txt' % (repo, repo)
-        if args.verbose: print(cmd)
-        pbar.set_description("Processing %s" % repo)
-        os.system(cmd)
+        from os.path import exists
+        if exists('%s.zip' % repo):
+            print('%s.zip exists' % repo)
+        else:
+            print('%s.zip NOT exists' % repo)
 
-        cmd = 'zip %s.zip %s.txt && trash %s.txt ' % (repo, repo, repo)
-        if args.verbose: print(cmd)
-        os.system(cmd)
+            cmd = 'borg list ::%s > %s.txt' % (repo, repo)
+            if args.verbose: print(cmd)
+            pbar.set_description("Processing %s" % repo)
+            os.system(cmd)
+
+            cmd = 'zip %s.zip %s.txt && trash %s.txt ' % (repo, repo, repo)
+            if args.verbose: print(cmd)
+            os.system(cmd)
