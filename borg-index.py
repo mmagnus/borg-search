@@ -69,9 +69,9 @@ if __name__ == '__main__':
     for repo in pbar:
         from os.path import exists
         if exists('%s.zip' % repo):
-            print('%s.zip exists' % repo)
+            if args.verbose: print('%s.zip exists' % repo)
         else:
-            print('%s.zip NOT exists' % repo)
+            if args.verbose: print('%s.zip NOT exists' % repo)
 
             cmd = 'borg list ::%s > %s.txt' % (repo, repo)
             if args.verbose: print(cmd)
