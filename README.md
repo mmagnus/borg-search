@@ -57,6 +57,15 @@ extract:
 
 	(base) ➜  mnt borg extract ::snapshot-2022-04-13T00:01:05 Users/magnus/Desktop/trx-farfar/t3-3/guA/default.out
 
+Search with:
+
+	(base) ➜  borgbase git:(main) ✗ ugrep -z 'Users/magnus/Desktop/trx/md/mutants-core-1st/ggu/mutatn-ggu-B-21' . -R
+	snapshot-2022-09-13T23:03:09.zip{snapshot-2022-09-13T23:03:09.txt}:-rw-r--r-- magnus staff    385777 Wed, 2021-11-10 15:55:59 Users/magnus/Desktop/trx/md/mutants-core-1st/ggu/mutatn-ggu-B-21g-A-61g+80u_rpr_MD_96.pdb_RenChains.pdb
+	snapshot-2022-09-13T23:03:09.zip{snapshot-2022-09-13T23:03:09.txt}:-rw-r--r-- magnus staff    385777 Wed, 2021-11-10 15:56:00 Users/magnus/Desktop/trx/md/mutants-core-1st/ggu/mutatn-ggu-B-21g-A-61g+80u_rpr_MD_97.pdb_RenChains.pdb
+	snapshot-2022-09-13T23:03:09.zip{snapshot-2022-09-13T23:03:09.txt}:-rw-r--r-- magnus staff    385777 Wed, 2021-11-10 15:56:02 Users/magnus/Desktop/trx/md/mutants-core-1st/ggu/mutatn-ggu-B-21g-A-61g+80u_rpr_MD_98.pdb_RenChains.pdb
+	snapshot-2022-09-13T23:03:09.zip{snapshot-2022-09-13T23:03:09.txt}:-rw-r--r-- magnus staff    385777 Wed, 2021-11-10 15:56:04 Users/magnus/Desktop/trx/md/mutants-core-1st/ggu/mutatn-ggu-B-21g-A-61g+80u_rpr_MD_99.pdb_RenChains.pdb
+
+
 
 
 [1] https://github.com/borgbackup/borg/issues/4092
