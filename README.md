@@ -65,8 +65,7 @@ Search with:
 	snapshot-2022-09-13T23:03:09.zip{snapshot-2022-09-13T23:03:09.txt}:-rw-r--r-- magnus staff    385777 Wed, 2021-11-10 15:56:02 Users/magnus/Desktop/trx/md/mutants-core-1st/ggu/mutatn-ggu-B-21g-A-61g+80u_rpr_MD_98.pdb_RenChains.pdb
 	snapshot-2022-09-13T23:03:09.zip{snapshot-2022-09-13T23:03:09.txt}:-rw-r--r-- magnus staff    385777 Wed, 2021-11-10 15:56:04 Users/magnus/Desktop/trx/md/mutants-core-1st/ggu/mutatn-ggu-B-21g-A-61g+80u_rpr_MD_99.pdb_RenChains.pdb
 
-
-
+Discussion  https://www.reddit.com/r/BorgBackup/comments/zezivb/borgsearch_tools_search_borg_archivesrepos_also/ 
 
 [1] https://github.com/borgbackup/borg/issues/4092
 [2] https://gitlab.com/essembeh/borg-find
