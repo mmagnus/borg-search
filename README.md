@@ -1,6 +1,6 @@
 # borg-search
 
-<b>The way that the borg documentation suggests to do the search is to mount archive and use search tool specific for you system [1]. However, in my case, because of not the best Internet connection (?), mounting often failed and I was not able to search for files on mounted drives. The tools here seem to work well without mounting your backups. There is something that looks way more versetile than my mini tools here, so take a look there as well [2].</b>
+<b>The way that the borg documentation suggests to do the search is to mount archive and use search tool specific for you system [1]. However, in my case, because of not the best Internet connection (?), mounting often failed and I was not able to search for files on mounted drives. The tools here seem to work well without mounting your backups. There is something that looks way more versatile than my mini tools here, so take a look there as well [2].</b>
 
 Two tools here search archive all repositories or make list for each repository and then use grep.
 
